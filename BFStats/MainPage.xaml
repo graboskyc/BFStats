@@ -1,0 +1,189 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="BFStats.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="696" 
+    d:DataContext="{d:DesignData SampleData/MainViewModelSampleData.xaml}"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        
+        <!--Panorama control-->
+        <controls:Panorama Title="BF3 Stats" Foreground="White">
+            <controls:Panorama.Background>
+                <ImageBrush ImageSource="PanoramaBackground.png"/>
+            </controls:Panorama.Background>
+            
+            <!--Panorama item one-->
+            <controls:PanoramaItem Header="player" x:Name="pi_user" Foreground="White">
+                <!--Double line list with image placeholder and text wrapping-->
+                <ListBox x:Name="playerlist" Margin="0,0,-12,0" ItemsSource="{Binding UserCol}" SelectionChanged="playercol_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
+                                <!--Replace rectangle with image-->
+                                <Image Height="100" Width="100" Margin="12,0,9,0" Source="{Binding Path=ImgSrc}" />
+                                <StackPanel Width="311">
+                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="White" />
+                                    <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="White"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PanoramaItem>
+ 
+            <!--Panorama item two-->
+            <!--Use 'Orientation="Horizontal"' to enable a panel that lays out horizontally-->
+            <controls:PanoramaItem Header="weapons" Foreground="White">
+                <!--Double line list with image placeholder and text wrapping-->
+                <ListBox Margin="0,0,-12,0" x:Name="weaponscol" ItemsSource="{Binding WeaponsCol}" SelectionChanged="weaponscol_SelectionChanged">
+                    <ListBox.ItemTemplate >
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
+                                <Image Height="100" Width="100" Margin="12,0,9,0" Source="{Binding Path=ImgSrc}" />
+                                <StackPanel Width="311">
+                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="White"/>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="250"></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="{Binding Current}" FontSize="12" Grid.Row="0" Grid.Column="0" Foreground="White" />
+                                        <ProgressBar Value="{Binding PBValue}" Minimum="0" Maximum="100" IsIndeterminate="False" Grid.Row="0" Grid.Column="1"  />
+                                        <TextBlock Text="{Binding Needed}" FontSize="12" Grid.Row="0" Grid.Column="2"  Foreground="White" />
+                                    </Grid>
+                                    <TextBlock Text="{Binding Tag}" Visibility="Collapsed" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="vehicles" Foreground="White">
+                <!--Double line list with image placeholder and text wrapping-->
+                <ListBox Margin="0,0,-12,0" x:Name="vehiclescol" ItemsSource="{Binding VehiclesCol}" SelectionChanged="vehi_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
+                                <!--Replace rectangle with image-->
+                                <Image Height="100" Width="100" Margin="12,0,9,0" Source="{Binding Path=ImgSrc}"/>
+                                <StackPanel Width="311">
+                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Tag}" Visibility="Collapsed" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="vehicle types" Foreground="White">
+                <!--Double line list with image placeholder and text wrapping-->
+                <ListBox Margin="0,0,-12,0" x:Name="vehicletypescol" ItemsSource="{Binding VehicleTypesCol}" SelectionChanged="vehicletypescol_SelectionChanged">
+                    <ListBox.ItemTemplate >
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
+                                <Image Height="100" Width="100" Margin="12,0,9,0" Source="{Binding Path=ImgSrc}" />
+                                <StackPanel Width="311">
+                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Tag}" Visibility="Collapsed" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="equipment" Foreground="White">
+                <!--Double line list with image placeholder and text wrapping-->
+                <ListBox Margin="0,0,-12,0" x:Name="equipcol" ItemsSource="{Binding EquipmentsCol}" SelectionChanged="equip_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,17" >
+                                <!--Replace rectangle with image-->
+                                <Image Height="60" Width="60" Margin="12,0,9,0" Source="{Binding Path=ImgSrc}"/>
+                                <Image Height="40" Width="40" Margin="12,0,9,0" Source="{Binding Path=Img2Src}"/>
+                                <StackPanel Width="311">
+                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Tag}" Visibility="Collapsed" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="ribbons" Foreground="White">
+                <!--Double line list with image placeholder and text wrapping-->
+                <ListBox Margin="0,0,-12,0" x:Name="ribboncol" ItemsSource="{Binding RibbonsCol}" SelectionChanged="ribbon_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
+                                <!--Replace rectangle with image-->
+                                <Image Height="100" Width="100" Margin="12,0,9,0" Source="{Binding Path=ImgSrc}"/>
+                                <StackPanel Width="311">
+                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Tag}" Visibility="Collapsed" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PanoramaItem>
+
+            <controls:PanoramaItem Header="medals" Foreground="White">
+                <!--Double line list with image placeholder and text wrapping-->
+                <ListBox Margin="0,0,-12,0" x:Name="medalscol" ItemsSource="{Binding MedalsCol}" SelectionChanged="medal_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,17" >
+                                <!--Replace rectangle with image-->
+                                <Image Height="100" Width="100" Margin="12,0,9,0" Source="{Binding Path=ImgSrc}"/>
+                                <StackPanel Width="311">
+                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}" Foreground="White"/>
+                                    <TextBlock Text="{Binding Tag}" Visibility="Collapsed" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PanoramaItem>
+        </controls:Panorama>
+    </Grid>
+
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True" Mode="Minimized">
+            <shell:ApplicationBarIconButton IconUri="/Settings.png" Text="Settings" Click="ApplicationBarIconButton_Click_Settings"/>
+            <shell:ApplicationBarIconButton IconUri="/Refresh.png" Text="Web Refresh" Click="ApplicationBarIconButton_Click_Refresh" />
+            <shell:ApplicationBarIconButton IconUri="/Download.png" Text="Pull" Click="ApplicationBarIconButton_Click_Download" />
+
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Click="ApplicationBarMenuItem_Click_Rate" Text="rate this app" />
+                <shell:ApplicationBarMenuItem Click="ApplicationBarMenuItem_Click_About"  Text="about this app" />
+                <!--<shell:ApplicationBarMenuItem Click="ApplicationBarMenuItem_Click_api"  Text="api update request" />-->
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+</phone:PhoneApplicationPage>

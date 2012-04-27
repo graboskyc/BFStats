@@ -1,0 +1,6 @@
+C:\Users\cgrabo200\Documents\Visual Studio 2010\Projects\BFStats\ScheduledTaskAgent1\Bin\Debug\ScheduledTaskAgent1.dll
+C:\Users\cgrabo200\Documents\Visual Studio 2010\Projects\BFStats\ScheduledTaskAgent1\Bin\Debug\ScheduledTaskAgent1.pdb
+C:\Users\cgrabo200\Documents\Visual Studio 2010\Projects\BFStats\ScheduledTaskAgent1\Bin\Debug\Newtonsoft.Json.dll
+C:\Users\cgrabo200\Documents\Visual Studio 2010\Projects\BFStats\ScheduledTaskAgent1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\cgrabo200\Documents\Visual Studio 2010\Projects\BFStats\ScheduledTaskAgent1\obj\Debug\ScheduledTaskAgent1.dll
+C:\Users\cgrabo200\Documents\Visual Studio 2010\Projects\BFStats\ScheduledTaskAgent1\obj\Debug\ScheduledTaskAgent1.pdb

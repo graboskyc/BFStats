@@ -1,0 +1,1194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{492F7A2A-88E0-4CA7-8B0D-BEEB78F487BA}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BFStats</RootNamespace>
+    <AssemblyName>BFStats</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone71</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>BFStats.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>BFStats.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;NOTBACKGROUNDAGENT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\Json45r1\Bin\WindowsPhone\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="mscorlib.extensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BGTaks.cs" />
+    <Compile Include="Configs.cs" />
+    <Compile Include="Equipment.cs" />
+    <Compile Include="HeatMap.cs" />
+    <Compile Include="Kit.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Medal.cs" />
+    <Compile Include="NextRank.cs" />
+    <Compile Include="PageHandler.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerDetails.xaml.cs">
+      <DependentUpon>PlayerDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ribbon.cs" />
+    <Compile Include="Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SignedRequest.cs" />
+    <Compile Include="SimplePlayer.cs" />
+    <Compile Include="Specializations.cs" />
+    <Compile Include="Vehicle.cs" />
+    <Compile Include="VehicleTypeDetails.xaml.cs">
+      <DependentUpon>VehicleTypeDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VehicleTypes.cs" />
+    <Compile Include="VehicleUnlock.cs" />
+    <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Weapon.cs" />
+    <Compile Include="WeaponDetails.xaml.cs">
+      <DependentUpon>WeaponDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WeaponStats.cs" />
+    <Compile Include="WeaponUnlock.cs" />
+    <Compile Include="Web.xaml.cs">
+      <DependentUpon>Web.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <DesignData Include="SampleData\MainViewModelSampleData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignData>
+    <DesignData Include="AppSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignData>
+    <Page Include="PlayerDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VehicleTypeDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WeaponDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Web.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="bf3\stats-time-icons.png" />
+    <Content Include="Download.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Refresh.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="PanoramaBackground.png" />
+    <Resource Include="bf3\awards_s\m01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m04.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m05.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m06.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m07.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m08.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m09.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m17.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m18.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m19.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m21.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m22.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m23.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m24.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m25.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m26.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m27.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m28.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m29.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m30.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m31.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m32.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m33.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m34.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m35.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m36.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m37.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m38.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m39.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m40.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m41.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m42.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m43.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m44.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m45.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m46.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m47.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m48.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m49.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\m50.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r01.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r02.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r03.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r04.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r05.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r06.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r07.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r08.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r09.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r10.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r11.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r12.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r13.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r14.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r15.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r16.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r17.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r18.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r19.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r20.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r21.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r22.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r23.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r24.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r25.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r26.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r27.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r28.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r29.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r30.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r31.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r32.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r33.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r34.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r35.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r36.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r37.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r38.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r39.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r40.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r41.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r42.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r43.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r44.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\awards_s\r45.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="bf3\kititems\c4.png" />
+    <Resource Include="bf3\kititems\claymore.png" />
+    <Resource Include="bf3\kititems\defib.png" />
+    <Resource Include="bf3\kititems\eod.png" />
+    <Resource Include="bf3\kititems\m224_mortar.png" />
+    <Resource Include="bf3\kititems\m67-grenade.png" />
+    <Resource Include="bf3\kititems\mav.png" />
+    <Resource Include="bf3\kititems\mine.png" />
+    <Resource Include="bf3\kititems\placeholder.png" />
+    <Resource Include="bf3\kititems\radiobeacon.png" />
+    <Resource Include="bf3\kititems\repairtool.png" />
+    <Resource Include="bf3\kititems\soflam.png" />
+    <Resource Include="bf3\kititems\tugs.png" />
+    <Resource Include="bf3\misc\Mp_Accuracy_Accuracy.png" />
+    <Resource Include="bf3\misc\Mp_Accuracy_Accuracy_bk.png" />
+    <Resource Include="bf3\misc\Mp_Assault_Sc_Assault.png" />
+    <Resource Include="bf3\misc\Mp_Assault_Sc_Assault_bk.png" />
+    <Resource Include="bf3\misc\Mp_Engineer_Sc_Engineer.png" />
+    <Resource Include="bf3\misc\Mp_Engineer_Sc_Engineer_bk.png" />
+    <Resource Include="bf3\misc\Mp_General_Sc_General.png" />
+    <Resource Include="bf3\misc\Mp_General_Sc_General_bk.png" />
+    <Resource Include="bf3\misc\Mp_Recon_Sc_Recon.png" />
+    <Resource Include="bf3\misc\Mp_Recon_Sc_Recon_bk.png" />
+    <Resource Include="bf3\misc\Mp_Support_Sc_Support.png" />
+    <Resource Include="bf3\misc\Mp_Support_Sc_Support_bk.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_AA_Kills_AA.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_AA_Kills_AA_bk.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_AH_Kills_AH.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_AH_Kills_AH_bk.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_All_Kills_VehicleAll.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_All_Kills_VehicleAll_bk.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_IFV_Kills_IFV.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_IFV_Kills_IFV_bk.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_Jet_Kills_Jet.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_Jet_Kills_Jet_bk.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_MBT_Kills_MBT.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_MBT_Kills_MBT_bk.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_SH_Kills_SH.png" />
+    <Resource Include="bf3\misc\Mp_Vehicle_SH_Kills_SH_bk.png" />
+    <Content Include="bf3\rankssmall\r0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r10.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r11.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r12.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r13.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r14.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r15.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r16.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r17.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r18.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r19.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r20.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r21.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r22.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r23.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r24.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r25.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r26.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r27.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r28.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r30.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r31.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r32.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r33.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r34.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r35.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r36.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r37.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r38.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r39.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r40.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r41.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r42.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r43.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r44.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r45.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\r9.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss10.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss100.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss11.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss12.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss13.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss14.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss15.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss16.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss17.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss18.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss19.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss20.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss21.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss22.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss23.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss24.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss25.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss26.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss27.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss28.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss29.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss30.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss31.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss32.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss33.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss34.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss35.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss36.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss37.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss38.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss39.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss40.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss41.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss42.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss43.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss44.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss45.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss46.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss47.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss48.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss49.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss5.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss50.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss51.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss52.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss53.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss54.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss55.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss56.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss57.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss58.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss59.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss6.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss60.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss61.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss62.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss63.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss64.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss65.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss66.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss67.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss68.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss69.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss7.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss70.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss71.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss72.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss73.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss74.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss75.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss76.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss77.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss78.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss79.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss8.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss80.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss81.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss82.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss83.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss84.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss85.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss86.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss87.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss88.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss89.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss9.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss90.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss91.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss92.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss93.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss94.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss95.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss96.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss97.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss98.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bf3\rankssmall\ss99.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="bf3\servicestars\servicestar.png" />
+    <Resource Include="bf3\soldierspecializations\ammo.png" />
+    <Resource Include="bf3\soldierspecializations\ammo2.png" />
+    <Resource Include="bf3\soldierspecializations\explosives.png" />
+    <Resource Include="bf3\soldierspecializations\explosives2.png" />
+    <Resource Include="bf3\soldierspecializations\explresist.png" />
+    <Resource Include="bf3\soldierspecializations\explresist2.png" />
+    <Resource Include="bf3\soldierspecializations\grenades.png" />
+    <Resource Include="bf3\soldierspecializations\grenades2.png" />
+    <Resource Include="bf3\soldierspecializations\placeholder.png" />
+    <Resource Include="bf3\soldierspecializations\sprint.png" />
+    <Resource Include="bf3\soldierspecializations\sprint2.png" />
+    <Resource Include="bf3\soldierspecializations\suppression.png" />
+    <Resource Include="bf3\soldierspecializations\suppression2.png" />
+    <Resource Include="bf3\soldierspecializations\supprresist.png" />
+    <Resource Include="bf3\soldierspecializations\supprresist2.png" />
+    <Resource Include="bf3\vehicles\a10.png" />
+    <Resource Include="bf3\vehicles\aav.png" />
+    <Resource Include="bf3\vehicles\ah1z.png" />
+    <Resource Include="bf3\vehicles\ah6.png" />
+    <Resource Include="bf3\vehicles\bmp2.png" />
+    <Resource Include="bf3\vehicles\btr90.png" />
+    <Resource Include="bf3\vehicles\centurion.png" />
+    <Resource Include="bf3\vehicles\dpv.png" />
+    <Resource Include="bf3\vehicles\f18.png" />
+    <Resource Include="bf3\vehicles\f35.png" />
+    <Resource Include="bf3\vehicles\growler.png" />
+    <Resource Include="bf3\vehicles\humvee.png" />
+    <Resource Include="bf3\vehicles\ka60.png" />
+    <Resource Include="bf3\vehicles\kornet.png" />
+    <Resource Include="bf3\vehicles\lav-25.png" />
+    <Resource Include="bf3\vehicles\lav-ad.png" />
+    <Resource Include="bf3\vehicles\m1a2.png" />
+    <Resource Include="bf3\vehicles\mi28.png" />
+    <Resource Include="bf3\vehicles\pantsir.png" />
+    <Resource Include="bf3\vehicles\rhib.png" />
+    <Resource Include="bf3\vehicles\skidloader.png" />
+    <Resource Include="bf3\vehicles\su35.png" />
+    <Resource Include="bf3\vehicles\su39.png" />
+    <Resource Include="bf3\vehicles\t90.png" />
+    <Resource Include="bf3\vehicles\tow.png" />
+    <Resource Include="bf3\vehicles\tunguska.png" />
+    <Resource Include="bf3\vehicles\vdv.png" />
+    <Resource Include="bf3\vehicles\venom.png" />
+    <Resource Include="bf3\vehicles\vodnik.png" />
+    <Resource Include="bf3\vehicles\z11.png" />
+    <Resource Include="bf3\vehicleunlocks\aaarmor.png" />
+    <Resource Include="bf3\vehicleunlocks\aaenvg.png" />
+    <Resource Include="bf3\vehicleunlocks\aapreventive.png" />
+    <Resource Include="bf3\vehicleunlocks\aaproximity.png" />
+    <Resource Include="bf3\vehicleunlocks\aaradar.png" />
+    <Resource Include="bf3\vehicleunlocks\aasmoke.png" />
+    <Resource Include="bf3\vehicleunlocks\aastealth.png" />
+    <Resource Include="bf3\vehicleunlocks\aastinger.png" />
+    <Resource Include="bf3\vehicleunlocks\aaweaponefficiency.png" />
+    <Resource Include="bf3\vehicleunlocks\aazoom.png" />
+    <Resource Include="bf3\vehicleunlocks\attackhelibelowradar.png" />
+    <Resource Include="bf3\vehicleunlocks\attackheliecm.png" />
+    <Resource Include="bf3\vehicleunlocks\attackhelienvg.png" />
+    <Resource Include="bf3\vehicleunlocks\attackheliextinguisher.png" />
+    <Resource Include="bf3\vehicleunlocks\attackheliflares.png" />
+    <Resource Include="bf3\vehicleunlocks\attackhelihellfire.png" />
+    <Resource Include="bf3\vehicleunlocks\attackhelilaser.png" />
+    <Resource Include="bf3\vehicleunlocks\attackhelipreventive.png" />
+    <Resource Include="bf3\vehicleunlocks\attackheliproximity.png" />
+    <Resource Include="bf3\vehicleunlocks\attackheliradar.png" />
+    <Resource Include="bf3\vehicleunlocks\attackhelirocketguide.png" />
+    <Resource Include="bf3\vehicleunlocks\attackhelisidewinders.png" />
+    <Resource Include="bf3\vehicleunlocks\attackhelistealth.png" />
+    <Resource Include="bf3\vehicleunlocks\attackhelitvg.png" />
+    <Resource Include="bf3\vehicleunlocks\attackheliweaponefficiency.png" />
+    <Resource Include="bf3\vehicleunlocks\attackhelizoom.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvapfsds-t.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvarmor.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvcoax.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvenvg.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvhellfire.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvpreventive.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvproximity.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvsmoke.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvstealth.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvtow.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvweaponefficiency.png" />
+    <Resource Include="bf3\vehicleunlocks\ifvzoom.png" />
+    <Resource Include="bf3\vehicleunlocks\jetavionics.png" />
+    <Resource Include="bf3\vehicleunlocks\jetbelowradar.png" />
+    <Resource Include="bf3\vehicleunlocks\jetecm.png" />
+    <Resource Include="bf3\vehicleunlocks\jetextinguisher.png" />
+    <Resource Include="bf3\vehicleunlocks\jetflares.png" />
+    <Resource Include="bf3\vehicleunlocks\jetmaverik.png" />
+    <Resource Include="bf3\vehicleunlocks\jetpreventive.png" />
+    <Resource Include="bf3\vehicleunlocks\jetproximity.png" />
+    <Resource Include="bf3\vehicleunlocks\jetradar.png" />
+    <Resource Include="bf3\vehicleunlocks\jetsidewinder.png" />
+    <Resource Include="bf3\vehicleunlocks\jetstealth.png" />
+    <Resource Include="bf3\vehicleunlocks\jetweaponefficiency.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtarmor.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtatgm.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtcanister.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtcitv.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtcoax.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtenvg.png" />
+    <Resource Include="bf3\vehicleunlocks\mbthmg.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtpreventive.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtproximity.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtsmoke.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtstealth.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtweaponeff.png" />
+    <Resource Include="bf3\vehicleunlocks\mbtzoom.png" />
+    <Resource Include="bf3\vehicleunlocks\rocketpod.png" />
+    <Resource Include="bf3\vehicleunlocks\scoutbelowradar.png" />
+    <Resource Include="bf3\vehicleunlocks\scoutecm.png" />
+    <Resource Include="bf3\vehicleunlocks\scoutextinguisher.png" />
+    <Resource Include="bf3\vehicleunlocks\scoutflares.png" />
+    <Resource Include="bf3\vehicleunlocks\scouthellfire.png" />
+    <Resource Include="bf3\vehicleunlocks\scoutlaser.png" />
+    <Resource Include="bf3\vehicleunlocks\scoutpreventive.png" />
+    <Resource Include="bf3\vehicleunlocks\scoutproximity.png" />
+    <Resource Include="bf3\vehicleunlocks\scoutradar.png" />
+    <Resource Include="bf3\vehicleunlocks\scoutsidewinder.png" />
+    <Resource Include="bf3\vehicleunlocks\scoutstealth.png" />
+    <Resource Include="bf3\vehicleunlocks\scoutweaponefficiency.png" />
+    <Resource Include="bf3\weaponaccessory\40mm_shotgunshell.png" />
+    <Resource Include="bf3\weaponaccessory\40mm_smoke.png" />
+    <Resource Include="bf3\weaponaccessory\acog.png" />
+    <Resource Include="bf3\weaponaccessory\ballistic.png" />
+    <Resource Include="bf3\weaponaccessory\bipod.png" />
+    <Resource Include="bf3\weaponaccessory\eotech.png" />
+    <Resource Include="bf3\weaponaccessory\ext_mag03.png" />
+    <Resource Include="bf3\weaponaccessory\flashlight.png" />
+    <Resource Include="bf3\weaponaccessory\flashsuppressor.png" />
+    <Resource Include="bf3\weaponaccessory\flechette.png" />
+    <Resource Include="bf3\weaponaccessory\foregrip.png" />
+    <Resource Include="bf3\weaponaccessory\frag.png" />
+    <Resource Include="bf3\weaponaccessory\heavybarrel.png" />
+    <Resource Include="bf3\weaponaccessory\irnv.png" />
+    <Resource Include="bf3\weaponaccessory\kobra.png" />
+    <Resource Include="bf3\weaponaccessory\m145.png" />
+    <Resource Include="bf3\weaponaccessory\pka.png" />
+    <Resource Include="bf3\weaponaccessory\pkas.png" />
+    <Resource Include="bf3\weaponaccessory\pks07.png" />
+    <Resource Include="bf3\weaponaccessory\pso.png" />
+    <Resource Include="bf3\weaponaccessory\riflescope.png" />
+    <Resource Include="bf3\weaponaccessory\rx01.png" />
+    <Resource Include="bf3\weaponaccessory\slug.png" />
+    <Resource Include="bf3\weaponaccessory\soundsuppressor.png" />
+    <Resource Include="bf3\weaponaccessory\straightbolt.png" />
+    <Resource Include="bf3\weaponaccessory\targetpointer.png" />
+    <Resource Include="bf3\weapons\a91.png" />
+    <Resource Include="bf3\weapons\aek971.png" />
+    <Resource Include="bf3\weapons\ak74m.png" />
+    <Resource Include="bf3\weapons\ak74m_american.png" />
+    <Resource Include="bf3\weapons\aks74u.png" />
+    <Resource Include="bf3\weapons\aks74u_american.png" />
+    <Resource Include="bf3\weapons\an94.png" />
+    <Resource Include="bf3\weapons\asval.png" />
+    <Resource Include="bf3\weapons\dao12.png" />
+    <Resource Include="bf3\weapons\f2000.png" />
+    <Resource Include="bf3\weapons\fgm148.png" />
+    <Resource Include="bf3\weapons\fim92a_stinger.png" />
+    <Resource Include="bf3\weapons\g3.png" />
+    <Resource Include="bf3\weapons\g36c.png" />
+    <Resource Include="bf3\weapons\glock17.png" />
+    <Resource Include="bf3\weapons\glock17_silenced.png" />
+    <Resource Include="bf3\weapons\glock18.png" />
+    <Resource Include="bf3\weapons\glock18_silenced.png" />
+    <Resource Include="bf3\weapons\kh2002.png" />
+    <Resource Include="bf3\weapons\knife.png" />
+    <Resource Include="bf3\weapons\m1014.png" />
+    <Resource Include="bf3\weapons\m16a4.png" />
+    <Resource Include="bf3\weapons\m16a4_russian.png" />
+    <Resource Include="bf3\weapons\m1911.png" />
+    <Resource Include="bf3\weapons\m1911flashlight_fancy.png" />
+    <Resource Include="bf3\weapons\m1911silenced_fancy.png" />
+    <Resource Include="bf3\weapons\m1911tactical_fancy.png" />
+    <Resource Include="bf3\weapons\m240.png" />
+    <Resource Include="bf3\weapons\m249.png" />
+    <Resource Include="bf3\weapons\m26mass.png" />
+    <Resource Include="bf3\weapons\m27.png" />
+    <Resource Include="bf3\weapons\m27_russian.png" />
+    <Resource Include="bf3\weapons\m320.png" />
+    <Resource Include="bf3\weapons\m39.png" />
+    <Resource Include="bf3\weapons\m40a5.png" />
+    <Resource Include="bf3\weapons\m416.png" />
+    <Resource Include="bf3\weapons\m4a1.png" />
+    <Resource Include="bf3\weapons\m4a1_russian.png" />
+    <Resource Include="bf3\weapons\m60.png" />
+    <Resource Include="bf3\weapons\m9.png" />
+    <Resource Include="bf3\weapons\m93r.png" />
+    <Resource Include="bf3\weapons\m98b.png" />
+    <Resource Include="bf3\weapons\m9_flashlight.png" />
+    <Resource Include="bf3\weapons\m9_silenced.png" />
+    <Resource Include="bf3\weapons\magpul.png" />
+    <Resource Include="bf3\weapons\mk11.png" />
+    <Resource Include="bf3\weapons\mk11_russian.png" />
+    <Resource Include="bf3\weapons\mp412rex.png" />
+    <Resource Include="bf3\weapons\mp443_flashlight.png" />
+    <Resource Include="bf3\weapons\mp443_grach.png" />
+    <Resource Include="bf3\weapons\mp443_silenced.png" />
+    <Resource Include="bf3\weapons\mp7.png" />
+    <Resource Include="bf3\weapons\p90.png" />
+    <Resource Include="bf3\weapons\pecheneg.png" />
+    <Resource Include="bf3\weapons\pp2000.png" />
+    <Resource Include="bf3\weapons\remington870.png" />
+    <Resource Include="bf3\weapons\rpg7.png" />
+    <Resource Include="bf3\weapons\rpk.png" />
+    <Resource Include="bf3\weapons\rpk_american.png" />
+    <Resource Include="bf3\weapons\sa18igla.png" />
+    <Resource Include="bf3\weapons\saiga12.png" />
+    <Resource Include="bf3\weapons\scarh.png" />
+    <Resource Include="bf3\weapons\sg553lb.png" />
+    <Resource Include="bf3\weapons\sks.png" />
+    <Resource Include="bf3\weapons\smaw.png" />
+    <Resource Include="bf3\weapons\sv98.png" />
+    <Resource Include="bf3\weapons\svd.png" />
+    <Resource Include="bf3\weapons\svd_american.png" />
+    <Resource Include="bf3\weapons\taurus44.png" />
+    <Resource Include="bf3\weapons\taurus_scope.png" />
+    <Resource Include="bf3\weapons\type88.png" />
+    <Resource Include="bf3\weapons\ump.png" />
+    <Resource Include="bf3\weapons\usas12.png" />
+    <Resource Include="bf3\weapons\xp1_famas.png" />
+    <Resource Include="bf3\weapons\xp1_hk53.png" />
+    <Resource Include="bf3\weapons\xp1_jackhammer.png" />
+    <Resource Include="bf3\weapons\xp1_l85a2.png" />
+    <Resource Include="bf3\weapons\xp1_l96.png" />
+    <Resource Include="bf3\weapons\xp1_mg36.png" />
+    <Resource Include="bf3\weapons\xp1_pp19.png" />
+    <Resource Include="bf3\weapons\xp1_qbb95.png" />
+    <Resource Include="bf3\weapons\xp1_qbu88.png" />
+    <Resource Include="bf3\weapons\xp1_qbz95b.png" />
+    <Resource Include="Soldier62.png" />
+    <Resource Include="Soldier173.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ScheduledTaskAgent1\ScheduledTaskAgent1.csproj">
+      <Project>{B97027F5-70DE-4857-A9AE-B1540385EE64}</Project>
+      <Name>ScheduledTaskAgent1</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

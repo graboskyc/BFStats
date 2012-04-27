@@ -1,0 +1,126 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="BFStats.PlayerDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="True" Background="White">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="White">
+        <!--Pivot Control-->
+        <controls:Pivot Title="Player" x:Name="PageTitle" Foreground="Black">
+            <!--Pivot item one-->
+            <controls:PivotItem Header="ranks" Foreground="Black">
+                <ListBox Margin="0,0,-12,0" ItemsSource="{Binding NextRanksCol}" >
+                    <ListBox.ItemTemplate >
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
+                                <Image Height="100" Width="100" Margin="12,0,9,0" Source="{Binding Path=ImgSrc}" />
+                                <StackPanel Width="311">
+                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}"  Foreground="Black"/>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="250"></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="{Binding Current}" FontSize="12" Grid.Row="0" Grid.Column="0" Foreground="Black" />
+                                        <ProgressBar Value="{Binding PBValue}" Minimum="0" Maximum="100" IsIndeterminate="False" Grid.Row="0" Grid.Column="1"  />
+                                        <TextBlock Text="{Binding Needed}" FontSize="12" Grid.Row="0" Grid.Column="2" Foreground="Black" />
+                                    </Grid>
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+            
+            <controls:PivotItem Header="specs" Foreground="Black">
+                <ListBox Margin="0,0,-12,0" ItemsSource="{Binding SpecsCol}" SelectionChanged="spec_SelectionChanged">
+                    <ListBox.ItemTemplate >
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,17">
+                                <Image Height="100" Width="100" Margin="12,0,9,0" Source="{Binding Path=ImgSrc}" />
+                                <StackPanel Width="311">
+                                    <TextBlock Text="{Binding LineOne}" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}"  Foreground="Black"/>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition></ColumnDefinition>
+                                            <ColumnDefinition Width="250"></ColumnDefinition>
+                                            <ColumnDefinition></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="{Binding Current}" FontSize="12" Grid.Row="0" Grid.Column="0" Foreground="Black" />
+                                        <ProgressBar Value="{Binding PBValue}" Minimum="0" Maximum="100" IsIndeterminate="False" Grid.Row="0" Grid.Column="1"  />
+                                        <TextBlock Text="{Binding Needed}" FontSize="12" Grid.Row="0" Grid.Column="2" Foreground="Black" />
+                                    </Grid>
+                                    <TextBlock Text="{Binding Tag}" Visibility="Collapsed" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+            
+            <!--Pivot item two-->
+            <controls:PivotItem Header="stats"  Foreground="Black">
+                <ScrollViewer>
+                <StackPanel>
+                    <TextBlock Text="Win/Loss" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}"  Foreground="Black"/>
+                    <Image x:Name="img_wl" Width="256" />
+                        <TextBlock Text="" x:Name="txt_wl" TextWrapping="NoWrap" TextAlignment="Center" FontSize="24" Foreground="Black"/>
+                        <TextBlock Text="Kill/Death" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}"  Foreground="Black"/>
+                        <Image x:Name="img_kd" Width="256" />
+                        <TextBlock Text="" x:Name="txt_kd" TextWrapping="NoWrap" TextAlignment="Center" FontSize="24" Foreground="Black"/>
+                        <TextBlock Text="Accuracy" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}"  Foreground="Black"/>
+                    <Image Source="bf3/misc/Mp_Accuracy_Accuracy_bk.png" Width="128" Height="128"/>
+                    <TextBlock Text="" x:Name="txt_acc" TextWrapping="NoWrap" TextAlignment="Center" FontSize="24" Foreground="Black"/>
+                    <TextBlock Text="Kits" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}"  Foreground="Black"/>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image x:Name="img_kitstime" Width="128" Height="128" Grid.Row="0" Grid.Column="0" />
+                            <TextBlock Text="Kits By Time" Grid.Row="1" Grid.Column="0" TextWrapping="NoWrap" TextAlignment="Center" FontSize="24" Foreground="Black"/>
+                            <Image x:Name="img_kitsscore" Width="128" Height="128" Grid.Row="0" Grid.Column="1" />
+                            <TextBlock Text="Kits By Score" Grid.Row="1" Grid.Column="1" TextWrapping="NoWrap" TextAlignment="Center" FontSize="24" Foreground="Black"/>
+                            <Image Source="bf3/stats-time-icons.png" Width="128" Height="128" Grid.Row="0" Grid.Column="2"/>
+                            <TextBlock Text="Key" Grid.Row="1" Grid.Column="2" TextWrapping="NoWrap" TextAlignment="Center" FontSize="24" Foreground="Black"/>
+                        </Grid>
+                        <TextBlock Text="Time Played" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}"  Foreground="Black"/>
+                        <TextBlock Text="" x:Name="txt_time" TextWrapping="NoWrap" TextAlignment="Center" FontSize="24" Foreground="Black"/>
+                        <TextBlock Text="Obj Per Min" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}"  Foreground="Black"/>
+                        <TextBlock Text="" x:Name="txt_opm" TextWrapping="NoWrap" TextAlignment="Center" FontSize="24" Foreground="Black"/>
+                        <TextBlock Text="Score Per Min" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}"  Foreground="Black"/>
+                        <TextBlock Text="" x:Name="txt_spm" TextWrapping="NoWrap" TextAlignment="Center" FontSize="24" Foreground="Black"/>
+                        <TextBlock Text="Skill/ELO" TextWrapping="NoWrap" Style="{StaticResource PhoneTextExtraLargeStyle}"  Foreground="Black"/>
+                        <TextBlock Text="" x:Name="txt_elo" TextWrapping="NoWrap" TextAlignment="Center" FontSize="24" Foreground="Black"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </controls:PivotItem>
+        </controls:Pivot>
+    </Grid>
+    
+</phone:PhoneApplicationPage>
